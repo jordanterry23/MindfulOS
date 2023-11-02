@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnysvg2qldftq"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="1_dpmcu"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="2_to5k2"]
+
+[node name="SpawnManager" type="Timer"]
+script = ExtResource("1_dpmcu")
+thought_bubbble = ExtResource("2_to5k2")

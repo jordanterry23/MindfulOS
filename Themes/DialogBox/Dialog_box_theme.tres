@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://y6xkejqhe6x6"]
+
+[ext_resource type="StyleBox" uid="uid://diph1pbpjasy1" path="res://Themes/DialogBox/dialog_box_close_button_hover.tres" id="1_284i3"]
+[ext_resource type="StyleBox" uid="uid://dgrrtx0vrba4w" path="res://Themes/DialogBox/dialog_box_close_button.tres" id="2_fwoyi"]
+[ext_resource type="FontFile" uid="uid://kr66oejuqbhx" path="res://Themes/Fonts/m5x7.ttf" id="3_du1m1"]
+[ext_resource type="StyleBox" uid="uid://cpya1di2g5b84" path="res://Themes/DialogBox/response_button_texture_style_box_hover.tres" id="4_emps6"]
+[ext_resource type="StyleBox" uid="uid://bpfqrkmxjnt7x" path="res://Themes/DialogBox/response_button_texture_style_box.tres" id="5_nbdyh"]
+[ext_resource type="StyleBox" uid="uid://b8hagahtlnvyn" path="res://Themes/DialogBox/dialog_box_title_bar_style_box.tres" id="6_xxryr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjr05"]
+bg_color = Color(0.698039, 0.698039, 0.698039, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.402344, 0.402344, 0.402344, 1)
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrclw"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+Background/base_type = &"PanelContainer"
+Background/styles/panel = SubResource("StyleBoxFlat_gjr05")
+CloseButton/base_type = &"Button"
+CloseButton/constants/outline_size = 0
+CloseButton/styles/disabled = ExtResource("1_284i3")
+CloseButton/styles/focus = ExtResource("1_284i3")
+CloseButton/styles/hover = ExtResource("1_284i3")
+CloseButton/styles/normal = ExtResource("2_fwoyi")
+DialogBoxContainer/base_type = &"VBoxContainer"
+DialogBoxContainer/constants/separation = 0
+DialogText/base_type = &"Label"
+DialogText/colors/font_color = Color(0, 0, 0, 1)
+DialogText/constants/line_spacing = 0
+DialogText/font_sizes/font_size = 16
+DialogText/fonts/font = ExtResource("3_du1m1")
+DialogTextBackground/base_type = &"PanelContainer"
+DialogTextBackground/styles/panel = SubResource("StyleBoxFlat_qrclw")
+ResponseButton/base_type = &"Button"
+ResponseButton/colors/font_color = Color(0, 0, 0, 1)
+ResponseButton/font_sizes/font_size = 16
+ResponseButton/fonts/font = ExtResource("3_du1m1")
+ResponseButton/styles/focus = ExtResource("4_emps6")
+ResponseButton/styles/hover = ExtResource("4_emps6")
+ResponseButton/styles/normal = ExtResource("5_nbdyh")
+ResponseButton/styles/pressed = ExtResource("4_emps6")
+TitleBar/base_type = &"PanelContainer"
+TitleBar/styles/panel = ExtResource("6_xxryr")
+TitleBarContainer/base_type = &"HBoxContainer"
+TitleBarContainer/constants/separation = 0
+TitleText/base_type = &"Label"
+TitleText/font_sizes/font_size = 16
+TitleText/fonts/font = ExtResource("3_du1m1")
+TitleTextContainer/base_type = &"MarginContainer"
+TitleTextContainer/constants/margin_bottom = 0
+TitleTextContainer/constants/margin_left = 4
+TitleTextContainer/constants/margin_right = 0
+TitleTextContainer/constants/margin_top = 0

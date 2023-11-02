@@ -1,0 +1,27 @@
+{
+	"thoughts":[
+		{"group": "HOME", "text": "I love my house."},
+		{"group": "HOME", "text": "I can do the dishes tomorrow."},
+		{"group": "HOME", "text": "I should play that new game."},
+		{"group": "HOME", "text": "The shower is nice and clean."},
+		{"group": "HOME", "text": "Need to pick up groceries this week."},
+		{"group": "HOME", "text": "We're low on milk."},
+		{"group": "HOME", "text": "Dinner was tasty."},
+		{"group": "HOME", "text": "The air conditioner works great."},
+		{"group": "WORK", "text": "Need to look for a new job."},
+		{"group": "WORK", "text": "Hope I get hired, soon."},
+		{"group": "WORK", "text": "Tech Co. seems like a good place to work."},
+		{"group": "WORK", "text": "What should my starting pay be?"},
+		{"group": "RELATIONSHIPS", "text": "I should call my mom."},
+		{"group": "RELATIONSHIPS", "text": "Haven't heard from dad in a while."},
+		{"group": "RELATIONSHIPS", "text": "My spouse seemed really happy today."},
+		{"group": "RELATIONSHIPS", "text": "I should invite my friends over."},
+		{"group": "RELATIONSHIPS", "text": "The neighbors are really nice."},
+		{"group": "RELATIONSHIPS", "text": "Hope I can make some new friends."},
+		{"group": "SCHOOL", "text": "Graduation is around the corner."},
+		{"group": "SCHOOL", "text": "Finals shouldn't be too bad."},
+		{"group": "SCHOOL", "text": "I'll finally have a degree soon."},
+		{"group": "SCHOOL", "text": "Physics, Algebra, Science..."},
+		{"group": "SCHOOL", "text": "Good grades this semester."},
+	]	
+}

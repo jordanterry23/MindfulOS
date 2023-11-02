@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://mk8ti3yvo2m8"]
+
+[ext_resource type="Theme" uid="uid://b68iodtnstsjn" path="res://Themes/ThoughtBubbles/ThoughtBubbleTheme.tres" id="1_0rfas"]
+[ext_resource type="Script" path="res://Scripts/GDScript/thought_bubble.gd" id="2_8gnkc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhavp"]
+
+[node name="ThoughtBubble" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_0rfas")
+script = ExtResource("2_8gnkc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 134.0
+offset_bottom = 80.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 2
+text = "This is a test thought with some test text."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="PanelContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PanelContainer/Area2D"]
+position = Vector2(17, 27)
+shape = SubResource("CircleShape2D_bhavp")
+
+[connection signal="gui_input" from="PanelContainer" to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="PanelContainer" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="." method="_on_mouse_exited"]
+[connection signal="resized" from="PanelContainer" to="." method="resize"]
+[connection signal="area_entered" from="PanelContainer/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PanelContainer/Area2D" to="." method="_on_area_2d_area_exited"]

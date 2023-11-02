@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://m533itmrnqpf"]
+
+[ext_resource type="AudioStream" uid="uid://voy7r12j6y6q" path="res://Audio/ButtonPress.wav" id="1_71mi2"]
+[ext_resource type="Script" path="res://Scripts/GDScript/sound_effects.gd" id="2_2tasf"]
+[ext_resource type="AudioStream" uid="uid://ca7us1vo4h6j0" path="res://Audio/Hit.wav" id="3_7ebap"]
+[ext_resource type="Script" path="res://Scripts/GDScript/SpawnManager.gd" id="4_80lh2"]
+[ext_resource type="PackedScene" uid="uid://b2hcj41x4n4b7" path="res://Scenes/Objects/ThoughtBubble.tscn" id="5_3orai"]
+[ext_resource type="PackedScene" uid="uid://dtvvdja2jxj65" path="res://Scenes/Objects/DropZone.tscn" id="6_ug7h7"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="7_g7kvl"]
+
+[node name="Tutorial" type="Node"]
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_71mi2")
+script = ExtResource("2_2tasf")
+success_sound = ExtResource("1_71mi2")
+fail_sound = ExtResource("3_7ebap")
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("4_80lh2")
+json_path = "res://Thoughts/TutorialThoughts.json"
+thought_bubbble = ExtResource("5_3orai")
+spawn_region_min = Vector2(100, 240)
+spawn_region_max = Vector2(400, 240)
+
+[node name="DropZone" parent="." instance=ExtResource("6_ug7h7")]
+position = Vector2(240, 50)
+
+[node name="DialogueBox" parent="." instance=ExtResource("7_g7kvl")]
+offset_left = -114.5
+offset_top = -78.0
+offset_right = 114.5
+offset_bottom = 78.0
+
+[node name="TitleTextLabel" parent="DialogueBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "Welcome!"
+
+[node name="DialogTextLabel" parent="DialogueBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "Welcome to the Mindful Thought Organizer!
+
+This organizer is used to help put your thoughts in order as they come in!
+
+Since this is your first time using Mindful, we will be giving you one Thought Box to start placing all of your thoughts in. Just click and drag your thought to the box, and then drop it into the box. It's that easy!
+
+Have fun, and happy organizing!"
+
+[editable path="DialogueBox"]

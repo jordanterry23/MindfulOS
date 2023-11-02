@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b8hagahtlnvyn"]
+
+[ext_resource type="Texture2D" uid="uid://bnowkkpuf6mrr" path="res://Images/TitleBar.png" id="1_n3j5f"]
+
+[resource]
+texture = ExtResource("1_n3j5f")
+texture_margin_left = 1.0
+texture_margin_top = 1.0

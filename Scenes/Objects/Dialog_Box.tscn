@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://b75lxfwo1eqve"]
+
+[ext_resource type="Theme" uid="uid://y6xkejqhe6x6" path="res://Themes/DialogBox/Dialog_box_theme.tres" id="1_hwirf"]
+[ext_resource type="Script" path="res://Scripts/GDScript/dialog_box.gd" id="2_nmid0"]
+
+[node name="DialogBox" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -51.0
+offset_right = 35.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_hwirf")
+theme_type_variation = &"Background"
+script = ExtResource("2_nmid0")
+
+[node name="DialogBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"DialogBoxContainer"
+
+[node name="TitleBarContainer" type="HBoxContainer" parent="DialogBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"TitleBarContainer"
+alignment = 2
+
+[node name="TitleBar" type="PanelContainer" parent="DialogBoxContainer/TitleBarContainer"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleBar"
+
+[node name="TitleTextContainer" type="MarginContainer" parent="DialogBoxContainer/TitleBarContainer/TitleBar"]
+layout_mode = 2
+theme_type_variation = &"TitleTextContainer"
+
+[node name="TitleTextLabel" type="Label" parent="DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer"]
+layout_mode = 2
+theme_type_variation = &"TitleText"
+text = "Title"
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="DialogBoxContainer/TitleBarContainer"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+theme_type_variation = &"CloseButton"
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"DialogTextBackground"
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="DialogTextLabel" type="Label" parent="DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"DialogText"
+text = "This is some sample text. Here is some more."
+autowrap_mode = 3
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="DialogBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBoxContainer/ButtonsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="ResponseButton" type="Button" parent="DialogBoxContainer/ButtonsContainer/MarginContainer"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+theme_type_variation = &"ResponseButton"
+text = "OK"
+
+[connection signal="pressed" from="DialogBoxContainer/TitleBarContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="DialogBoxContainer/ButtonsContainer/MarginContainer/ResponseButton" to="." method="_on_response_button_pressed"]

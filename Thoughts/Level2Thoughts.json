@@ -1,0 +1,23 @@
+{
+	"thoughts":[
+		{"group": "HOME", "text": "The lawn needs mowing."},
+		{"group": "HOME", "text": "The kitchen is pretty messy."},
+		{"group": "HOME", "text": "The dishes really need to get done."},
+		{"group": "HOME", "text": "Maybe I can play games tomorrow?"},
+		{"group": "HOME", "text": "The shower's getting a little gross."},
+		{"group": "HOME", "text": "I need to change the sheets this week."},
+		{"group": "HOME", "text": "I can't forget to pick up groceries again."},
+		{"group": "HOME", "text": "We're out of milk."},
+		{"group": "HOME", "text": "Frozen dinners aren't that bad, right?"},
+		{"group": "WORK", "text": "Need to keep looking for a job."},
+		{"group": "WORK", "text": "Is anyone hiring?"},
+		{"group": "WORK", "text": "Tech Co. hasn't called back yet."},
+		{"group": "WORK", "text": "Maybe I should get a part-time job."},
+		{"group": "RELATIONSHIPS", "text": "I should really call my mom."},
+		{"group": "RELATIONSHIPS", "text": "Haven't heard from anyone at all."},
+		{"group": "RELATIONSHIPS", "text": "My spouse has been really busy."},
+		{"group": "RELATIONSHIPS", "text": "Most of my friends are moving away."},
+		{"group": "SCHOOL", "text": "Is this degree actually doing anything for me?"},
+		{"group": "SCHOOL", "text": "Good grades should look good on a resume, right?"},
+	]	
+}

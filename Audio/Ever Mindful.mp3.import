@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd5y8oh2w3aqf"
+path="res://.godot/imported/Ever Mindful.mp3-90a0447652df22e4cf54bbb058b4997e.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ever Mindful.mp3"
+dest_files=["res://.godot/imported/Ever Mindful.mp3-90a0447652df22e4cf54bbb058b4997e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

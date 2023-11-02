@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu2joscym2345"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/quote.gd" id="1_kkm8k"]
+[ext_resource type="FontFile" uid="uid://kr66oejuqbhx" path="res://Themes/Fonts/m5x7.ttf" id="2_qtrre"]
+[ext_resource type="Script" path="res://Scripts/GDScript/messagereader.gd" id="3_gwgq2"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="5_v5ebq"]
+
+[sub_resource type="Animation" id="Animation_flgqd"]
+resource_name = "fade_out"
+length = 15.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 10.2, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2hsd"]
+_data = {
+"fade_out": SubResource("Animation_flgqd")
+}
+
+[node name="Intro" type="Node"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h2hsd")
+}
+script = ExtResource("1_kkm8k")
+
+[node name="TextureRect" type="ColorRect" parent="AnimationPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="AnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_qtrre")
+text = "Out of clutter, find simplicity. 
+From discord, find harmony. 
+In the middle of difficulty lies opportunity.
+- Albert Einstein"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageReader" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_gwgq2")
+start_on_ready = false
+message = ["When I have trouble sleeping,", "usually it's my thoughts that keep me awake.", "So I mentally organize them into little boxes,", "and I can unpack them the next day."]
+
+[node name="Message" type="Label" parent="MessageReader"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_qtrre")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Transitioner" parent="MessageReader" instance=ExtResource("5_v5ebq")]
+
+[node name="LineTimer" type="Timer" parent="MessageReader"]
+one_shot = true
+
+[node name="LetterTimer" type="Timer" parent="MessageReader"]
+wait_time = 0.05
+one_shot = true
+
+[node name="FinishTimer" type="Timer" parent="MessageReader"]
+wait_time = 5.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
+[connection signal="finished" from="MessageReader" to="MessageReader" method="_on_finished" flags=18]
+[connection signal="faded_out" from="MessageReader/Transitioner" to="MessageReader" method="_on_transitioner_faded_out" flags=18]

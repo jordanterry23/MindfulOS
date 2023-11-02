@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://ws8sgjw62waf"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/disclaimer.gd" id="1_5pn5f"]
+[ext_resource type="FontFile" uid="uid://kr66oejuqbhx" path="res://Themes/Fonts/m5x7.ttf" id="3_ih1p0"]
+[ext_resource type="Theme" uid="uid://y6xkejqhe6x6" path="res://Themes/DialogBox/Dialog_box_theme.tres" id="3_vrhtl"]
+
+[sub_resource type="Animation" id="Animation_7aqdr"]
+resource_name = "fade_in"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2fgxt"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect/VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i72bl"]
+_data = {
+"fade_in": SubResource("Animation_7aqdr"),
+"fade_out": SubResource("Animation_2fgxt")
+}
+
+[node name="Disclaimer" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5pn5f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i72bl")
+}
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer/ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 64.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Disclaimer" type="Label" parent="AnimationPlayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("3_ih1p0")
+text = "Disclaimer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="AnimationPlayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ih1p0")
+text = "
+This game is created for entertainment purposes only 
+and contains themes that some players may
+find upsetting, such as anxiety and depression.
+
+Player and viewer discretion is advised.
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnderstandButton" type="Button" parent="AnimationPlayer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_vrhtl")
+theme_type_variation = &"ResponseButton"
+disabled = true
+text = "I understand and wish to continue."
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="AnimationPlayer/ColorRect/VBoxContainer/UnderstandButton" to="." method="_on_understand_button_pressed"]

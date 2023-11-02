@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbqjggph01jbd"]
+
+[ext_resource type="Theme" uid="uid://y6xkejqhe6x6" path="res://Themes/DialogBox/Dialog_box_theme.tres" id="1_k4hgr"]
+[ext_resource type="Script" path="res://Scenes/Menus/settings_menu.gd" id="2_1aceh"]
+
+[node name="SettingsMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -67.0
+offset_right = 64.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_k4hgr")
+theme_type_variation = &"Background"
+script = ExtResource("2_1aceh")
+
+[node name="SettingsMenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"DialogBoxContainer"
+
+[node name="TitleBarContainer" type="HBoxContainer" parent="SettingsMenuContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"TitleBarContainer"
+alignment = 2
+
+[node name="TitleBar" type="PanelContainer" parent="SettingsMenuContainer/TitleBarContainer"]
+custom_minimum_size = Vector2(50, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleBar"
+
+[node name="TitleTextContainer" type="MarginContainer" parent="SettingsMenuContainer/TitleBarContainer/TitleBar"]
+layout_mode = 2
+theme_type_variation = &"TitleTextContainer"
+
+[node name="TitleTextLabel" type="Label" parent="SettingsMenuContainer/TitleBarContainer/TitleBar/TitleTextContainer"]
+layout_mode = 2
+theme_type_variation = &"TitleText"
+text = "Settings"
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="SettingsMenuContainer/TitleBarContainer"]
+custom_minimum_size = Vector2(17, 0)
+layout_mode = 2
+theme_type_variation = &"CloseButton"
+
+[node name="SettingsMarginContainer" type="MarginContainer" parent="SettingsMenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="SettingsVBoxContainer" type="VBoxContainer" parent="SettingsMenuContainer/SettingsMarginContainer"]
+layout_mode = 2
+
+[node name="MusicCheckboxContainer" type="HBoxContainer" parent="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer"]
+layout_mode = 2
+
+[node name="MusicCheckbox" type="CheckBox" parent="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer/MusicCheckboxContainer"]
+layout_mode = 2
+theme_type_variation = &"DialogText"
+button_pressed = true
+text = "Music"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+
+[node name="SoundEffectsCheckBoxContainer" type="HBoxContainer" parent="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer"]
+layout_mode = 2
+
+[node name="SoundEffects" type="CheckBox" parent="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer/SoundEffectsCheckBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"DialogText"
+button_pressed = true
+text = "Sound Effects"
+
+[node name="SoundEffectsVolumeSlider" type="HSlider" parent="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+
+[node name="ButtonMarginContainer" type="MarginContainer" parent="SettingsMenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="SettingsMenuContainer/ButtonMarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="SettingsMenuContainer/ButtonMarginContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+theme_type_variation = &"ResponseButton"
+text = "Back"
+
+[connection signal="pressed" from="SettingsMenuContainer/TitleBarContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="toggled" from="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer/MusicCheckboxContainer/MusicCheckbox" to="." method="_on_music_checkbox_toggled"]
+[connection signal="value_changed" from="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="toggled" from="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer/SoundEffectsCheckBoxContainer/SoundEffects" to="." method="_on_sound_effects_toggled"]
+[connection signal="value_changed" from="SettingsMenuContainer/SettingsMarginContainer/SettingsVBoxContainer/SoundEffectsVolumeSlider" to="." method="_on_sound_effects_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenuContainer/ButtonMarginContainer/ButtonsContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bh4ifsmlq1ivl"]
+
+[ext_resource type="Texture2D" uid="uid://ds3qqqiw7bm0e" path="res://Images/DialogueWindow.png" id="1_ped5a"]
+
+[resource]
+texture = ExtResource("1_ped5a")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 9.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(9, 9, 48, 48)

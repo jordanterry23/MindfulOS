@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://b30604i254art"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/level.gd" id="1_6rfcn"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="5_30his"]
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="5_w6dl6"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="6_26e5m"]
+[ext_resource type="PackedScene" uid="uid://jqahhxnbomvs" path="res://Scenes/Objects/DropZone.tscn" id="7_6e8wt"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="8_y31sj"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="9_awy4k"]
+
+[node name="Level2" type="Node"]
+script = ExtResource("1_6rfcn")
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("5_w6dl6")
+json_path = "res://Thoughts/Level2Thoughts.json"
+thought_bubbble = ExtResource("6_26e5m")
+spawn_region_min = Vector2(100, 200)
+spawn_region_max = Vector2(350, 200)
+
+[node name="HomeDropZone" parent="." instance=ExtResource("7_6e8wt")]
+position = Vector2(76, 50)
+thought_group = 1
+
+[node name="WorkDropZone" parent="." instance=ExtResource("7_6e8wt")]
+position = Vector2(190, 50)
+thought_group = 2
+
+[node name="SchoolDropZone" parent="." instance=ExtResource("7_6e8wt")]
+position = Vector2(304, 50)
+thought_group = 3
+
+[node name="SocialDropZone" parent="." instance=ExtResource("7_6e8wt")]
+position = Vector2(418, 50)
+thought_group = 4
+
+[node name="StartMenu" parent="." instance=ExtResource("5_30his")]
+
+[node name="DialogBox" parent="." instance=ExtResource("8_y31sj")]
+offset_left = -114.5
+offset_top = -78.0
+offset_right = 114.5
+offset_bottom = 78.0
+
+[node name="TitleTextLabel" parent="DialogBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "Keep it up!"
+
+[node name="DialogTextLabel" parent="DialogBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "You're a natural!
+
+Just keep doing what you are doing and you can be relaxed knowing that your thoughts are organized and ready for later use.
+
+Thank you for choosing Mindful Thought Organizer!"
+
+[node name="Transitioner" parent="." instance=ExtResource("9_awy4k")]
+
+[connection signal="thoughts_empty" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_empty"]
+[connection signal="thoughts_put_away" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_put_away"]
+[connection signal="closed" from="DialogBox" to="." method="_on_dialog_box_closed"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]
+
+[editable path="DialogBox"]

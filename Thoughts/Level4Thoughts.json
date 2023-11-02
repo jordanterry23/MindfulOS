@@ -1,0 +1,28 @@
+{
+	"thoughts":[
+		{"group": "HOME", "text": "The grass is too tall..."},
+		{"group": "HOME", "text": "I don't want to look at the kitchen."},
+		{"group": "DARK", "text": "Quit leaving your dishes around like a slob!"},
+		{"group": "HOME", "text": "I can't see the sink..."},
+		{"group": "HOME", "text": "I don't want to play games..."},
+		{"group": "HOME", "text": "I don't want to shower in that..."},
+		{"group": "HOME", "text": "I don't have enough energy to change the sheets..."},
+		{"group": "HOME", "text": "Forgot about groceries..."},
+		{"group": "DARK", "text": "You don't deserve food."},
+		{"group": "HOME", "text": "That room is nothing but boxes..."},
+		{"group": "DARK", "text": "You forgot again, idiot."},
+		{"group": "HOME", "text": "It's hot in here..."},
+		{"group": "DARK", "text": "You're worthless."},
+		{"group": "WORK", "text": "Do I know what I want to do for a living?"},
+		{"group": "DARK", "text": "Why would anyone hire you?"},
+		{"group": "WORK", "text": "I don't know if I'll get hired..."},
+		{"group": "WORK", "text": "Stil no interviews..."},
+		{"group": "WORK", "text": "Can I even get a part-time job?"},
+		{"group": "RELATIONSHIPS", "text": "Mom's probably busy..."},
+		{"group": "DARK", "text": "Eveyone's too busy for you."},
+		{"group": "RELATIONSHIPS", "text": "Do I have any friends left?"},
+		{"group": "RELATIONSHIPS", "text": "Does anyone actually want to talk to me?"},
+		{"group": "SCHOOL", "text": "This degree has done nothing for me..."},
+		{"group": "DARK", "text": "You suck."}
+	]	
+}

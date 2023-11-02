@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://boc0iy8cf3jsi"]
+
+[ext_resource type="PackedScene" uid="uid://d1w8efgb4m2t3" path="res://Scenes/Menus/MainMenu.tscn" id="1_bmwj8"]
+[ext_resource type="Script" path="res://Scripts/GDScript/Title.gd" id="1_o6bbi"]
+[ext_resource type="PackedScene" uid="uid://cbqjggph01jbd" path="res://Scenes/Menus/SettingsMenu.tscn" id="2_58m5f"]
+
+[node name="Title" type="Node"]
+script = ExtResource("1_o6bbi")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_bmwj8")]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_58m5f")]
+visible = false
+
+[connection signal="navigate_to_settings" from="MainMenu" to="." method="_on_main_menu_navigate_to_settings"]
+[connection signal="settings_closed" from="SettingsMenu" to="." method="_on_settings_menu_settings_closed"]

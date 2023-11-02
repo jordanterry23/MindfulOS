@@ -1,0 +1,26 @@
+{
+	"thoughts":[
+		{"group": "HOME", "text": "I got the dishes done."},
+		{"group": "HOME", "text": "The shower looks better."},
+		{"group": "DARK", "text": "Why bother sleeping?"},
+		{"group": "HOME", "text": "I'll try get some better sleep tonight."},
+		{"group": "HOME", "text": "Fridge is stocked now."},
+		{"group": "DARK", "text": "You forgot the boxes again, idiot."},
+		{"group": "HOME", "text": "I'll take the boxes to recyling tomorrow."},
+		{"group": "DARK", "text": "No one's going to hire you."},
+		{"group": "WORK", "text": "Someone will hire me eventually."},
+		{"group": "WORK", "text": "I haven't found the right place to work, yet."},
+		{"group": "DARK", "text": "You didn't actually earn your degree."},
+		{"group": "SCHOOL", "text": "I worked hard to earn my degree."},
+		{"group": "SCHOOL", "text": "Maybe I can take some other online classes?"},
+		{"group": "DARK", "text": "Eveyone's too busy for you."},
+		{"group": "DARK", "text": "They don't want to talk to you anyway."},
+		{"group": "RELATIONSHIPS", "text": "Sounds like Mom misses me, too."},
+		{"group": "RELATIONSHIPS", "text": "My grandparents seem to be doing ok."},
+		{"group": "RELATIONSHIPS", "text": "I'm glad I messaged my friends."},
+		{"group": "DARK", "text": "You are a burden your spouse has to take care of."},
+		{"group": "RELATIONSHIPS", "text": "I love my spouse, and my spouse loves me."},
+		{"group": "RELATIONSHIPS", "text": "I'm lucky to have a spouse that understands me."}
+		
+	]	
+}

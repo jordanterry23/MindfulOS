@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://41idn8jb10p3"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/level.gd" id="1_7k3u1"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="5_hfvo4"]
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="5_uj8kx"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="6_yygw5"]
+[ext_resource type="PackedScene" uid="uid://jqahhxnbomvs" path="res://Scenes/Objects/DropZone.tscn" id="7_gppwc"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="8_xjirw"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="9_rik4i"]
+
+[node name="Level3" type="Node"]
+script = ExtResource("1_7k3u1")
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("5_uj8kx")
+json_path = "res://Thoughts/Level3Thoughts.json"
+thought_bubbble = ExtResource("6_yygw5")
+max_spawn_time = 3.0
+spawn_region_min = Vector2(100, 200)
+spawn_region_max = Vector2(350, 200)
+
+[node name="HomeDropZone" parent="." instance=ExtResource("7_gppwc")]
+position = Vector2(76, 50)
+thought_group = 1
+
+[node name="WorkDropZone" parent="." instance=ExtResource("7_gppwc")]
+position = Vector2(190, 50)
+thought_group = 2
+
+[node name="SchoolDropZone" parent="." instance=ExtResource("7_gppwc")]
+position = Vector2(304, 50)
+thought_group = 3
+
+[node name="SocialDropZone" parent="." instance=ExtResource("7_gppwc")]
+position = Vector2(418, 50)
+thought_group = 4
+
+[node name="StartMenu" parent="." instance=ExtResource("5_hfvo4")]
+
+[node name="DialogBox" parent="." instance=ExtResource("8_xjirw")]
+offset_left = -114.5
+offset_top = -78.0
+offset_right = 114.5
+offset_bottom = 78.0
+
+[node name="TitleTextLabel" parent="DialogBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "High Thought Flow Detected"
+
+[node name="DialogTextLabel" parent="DialogBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "A large amount of thoughts seem to be coming through. Please make note to organize them thoroughly, since too many thoughts may cause a system crash.
+
+If any issues arise, please call support for assistance."
+
+[node name="Transitioner" parent="." instance=ExtResource("9_rik4i")]
+
+[connection signal="thoughts_empty" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_empty"]
+[connection signal="thoughts_put_away" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_put_away"]
+[connection signal="closed" from="DialogBox" to="." method="_on_dialog_box_closed"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]
+
+[editable path="DialogBox"]

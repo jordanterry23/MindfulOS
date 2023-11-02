@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpdser1ghsshm"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/messagereader.gd" id="1_qkknx"]
+[ext_resource type="FontFile" uid="uid://kr66oejuqbhx" path="res://Themes/Fonts/m5x7.ttf" id="3_pcqxi"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="5_0n6tp"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="6_jpat6"]
+
+[node name="Epilogue" type="Node"]
+script = ExtResource("1_qkknx")
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_pcqxi")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="StartMenu" parent="." instance=ExtResource("5_0n6tp")]
+
+[node name="Transitioner" parent="." instance=ExtResource("6_jpat6")]
+
+[node name="LineTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LetterTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="FinishTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]

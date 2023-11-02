@@ -1,0 +1,9 @@
+{
+	"thoughts":[
+		{"group": "HOME", "text": "This is a home thought."},
+		{"group": "WORK", "text": "This is a work thought."},
+		{"group": "RELATIONSHIPS", "text": "This is a social thought."},
+		{"group": "SCHOOL", "text": "This is a school thought."},
+		{"group": "DARK", "text": "This is a dark thought."}
+	]	
+}

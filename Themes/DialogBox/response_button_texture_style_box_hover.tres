@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cpya1di2g5b84"]
+
+[ext_resource type="Texture2D" uid="uid://ctfri74e6n2m2" path="res://Images/ResponseButton.png" id="1_vt0kk"]
+
+[resource]
+texture = ExtResource("1_vt0kk")
+texture_margin_left = 4.0
+texture_margin_top = 1.0
+texture_margin_right = 4.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.498039, 0.498039, 0.498039, 1)

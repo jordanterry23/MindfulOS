@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://m533itmrnqpf"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/level.gd" id="1_ixjk2"]
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="4_7f823"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="5_3orai"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="6_dojjm"]
+[ext_resource type="PackedScene" uid="uid://jqahhxnbomvs" path="res://Scenes/Objects/DropZone.tscn" id="6_ug7h7"]
+[ext_resource type="PackedScene" uid="uid://cbqjggph01jbd" path="res://Scenes/Menus/SettingsMenu.tscn" id="7_8qkin"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="7_g7kvl"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="8_m8ukr"]
+
+[node name="Tutorial" type="Node"]
+script = ExtResource("1_ixjk2")
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("4_7f823")
+json_path = "res://Thoughts/TutorialThoughts.json"
+thought_bubbble = ExtResource("5_3orai")
+spawn_region_min = Vector2(100, 200)
+spawn_region_max = Vector2(400, 200)
+slow_mode = true
+
+[node name="DropZone" parent="." instance=ExtResource("6_ug7h7")]
+position = Vector2(240, 50)
+
+[node name="SettingsMenu" parent="." instance=ExtResource("7_8qkin")]
+visible = false
+
+[node name="StartMenu" parent="." instance=ExtResource("6_dojjm")]
+
+[node name="DialogBox" parent="." instance=ExtResource("7_g7kvl")]
+offset_left = -114.5
+offset_top = -122.0
+offset_right = 114.5
+offset_bottom = 122.0
+
+[node name="TitleTextLabel" parent="DialogBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "Welcome to Mindful!"
+
+[node name="DialogTextLabel" parent="DialogBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "Welcome to Mindful Thought Organizer!
+
+This minimalist thought organization program is used to help organize your thoughts as they come in, so you can rest easy!
+
+Since this is your first time using Mindful, we will be giving you one Thought Box to start placing all of your thoughts in. Just click and drag your thought to the box, and then drop it in. It's that easy!
+
+Have fun, and happy organizing!"
+
+[node name="Transitioner" parent="." instance=ExtResource("8_m8ukr")]
+
+[connection signal="thoughts_empty" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_empty"]
+[connection signal="thoughts_put_away" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_put_away"]
+[connection signal="settings_closed" from="SettingsMenu" to="." method="_on_settings_menu_settings_closed"]
+[connection signal="navigate_to_settings" from="StartMenu" to="SettingsMenu" method="_on_start_menu_navigate_to_settings"]
+[connection signal="closed" from="DialogBox" to="." method="_on_dialog_box_closed"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]
+
+[editable path="DialogBox"]

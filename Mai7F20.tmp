@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://drfd4a33kb07t"]
+
+[ext_resource type="PackedScene" uid="uid://b2hcj41x4n4b7" path="res://ThoughtBubble.tscn" id="1_kd8e0"]
+[ext_resource type="PackedScene" uid="uid://dtvvdja2jxj65" path="res://DropZone.tscn" id="2_336nx"]
+[ext_resource type="AudioStream" uid="uid://voy7r12j6y6q" path="res://ButtonPress.wav" id="3_herxe"]
+[ext_resource type="Script" path="res://sound_effects.gd" id="4_5etcn"]
+
+[node name="Main" type="Node"]
+
+[node name="PanelContainer" parent="." instance=ExtResource("2_336nx")]
+position = Vector2(559, 124)
+
+[node name="ThoughtBubble" parent="." instance=ExtResource("1_kd8e0")]
+
+[node name="ThoughtBubble2" parent="." instance=ExtResource("1_kd8e0")]
+offset_left = 105.0
+offset_top = 252.0
+offset_right = 325.0
+offset_bottom = 327.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_herxe")
+script = ExtResource("4_5etcn")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctru5ld6s4hx0"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/level.gd" id="1_y3b1c"]
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="4_6w37l"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="5_5ijpf"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="5_yc3a4"]
+[ext_resource type="PackedScene" uid="uid://jqahhxnbomvs" path="res://Scenes/Objects/DropZone.tscn" id="6_5xhxe"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="7_lrbsx"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="8_faeqi"]
+
+[node name="Level6" type="Node"]
+script = ExtResource("1_y3b1c")
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("4_6w37l")
+json_path = "res://Thoughts/Level6Thoughts.json"
+thought_bubbble = ExtResource("5_yc3a4")
+min_spawn_time = 3.0
+spawn_region_min = Vector2(100, 200)
+spawn_region_max = Vector2(400, 200)
+shuffle = false
+slow_mode = true
+
+[node name="HomeDropZone" parent="." instance=ExtResource("6_5xhxe")]
+position = Vector2(48, 50)
+thought_group = 1
+
+[node name="WorkDropZone" parent="." instance=ExtResource("6_5xhxe")]
+position = Vector2(144, 50)
+thought_group = 2
+
+[node name="SchoolDropZone" parent="." instance=ExtResource("6_5xhxe")]
+position = Vector2(240, 50)
+thought_group = 3
+
+[node name="SocialDropZone" parent="." instance=ExtResource("6_5xhxe")]
+position = Vector2(336, 50)
+thought_group = 4
+
+[node name="DarkDropZone" parent="." instance=ExtResource("6_5xhxe")]
+position = Vector2(432, 50)
+thought_group = 5
+
+[node name="StartMenu" parent="." instance=ExtResource("5_5ijpf")]
+
+[node name="DialogBox" parent="." instance=ExtResource("7_lrbsx")]
+offset_left = -114.5
+offset_top = -57.0
+offset_right = 114.5
+offset_bottom = 57.0
+
+[node name="TitleTextLabel" parent="DialogBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "Improved Thought Processing"
+
+[node name="DialogTextLabel" parent="DialogBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "Mindful has been updated after support discussions with users.
+
+Difficult thoughts can now be reprocessed into more constructive and easier to categorize thoughts.
+
+To further assist you, slow mode has also been enabled for easier processing.
+
+We know \"one-size-fits-all\" does not apply for every use case, so let us know if another route needs to be taken."
+
+[node name="Transitioner" parent="." instance=ExtResource("8_faeqi")]
+
+[connection signal="thoughts_empty" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_empty"]
+[connection signal="thoughts_put_away" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_put_away"]
+[connection signal="closed" from="DialogBox" to="." method="_on_dialog_box_closed"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]
+
+[editable path="DialogBox"]

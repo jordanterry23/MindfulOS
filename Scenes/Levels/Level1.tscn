@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://caj0pxncns5d8"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/level.gd" id="1_34md3"]
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="4_f8hq4"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="5_bys1v"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="5_cwltk"]
+[ext_resource type="PackedScene" uid="uid://jqahhxnbomvs" path="res://Scenes/Objects/DropZone.tscn" id="6_uq3k3"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="7_8c6a2"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="8_ukyv0"]
+
+[node name="Level1" type="Node"]
+script = ExtResource("1_34md3")
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("4_f8hq4")
+json_path = "res://Thoughts/Level1Thoughts.json"
+thought_bubbble = ExtResource("5_cwltk")
+spawn_region_min = Vector2(100, 200)
+spawn_region_max = Vector2(350, 200)
+
+[node name="HomeDropZone" parent="." instance=ExtResource("6_uq3k3")]
+position = Vector2(76, 50)
+thought_group = 1
+
+[node name="WorkDropZone" parent="." instance=ExtResource("6_uq3k3")]
+position = Vector2(190, 50)
+thought_group = 2
+
+[node name="SchoolDropZone" parent="." instance=ExtResource("6_uq3k3")]
+position = Vector2(304, 50)
+thought_group = 3
+
+[node name="SocialDropZone" parent="." instance=ExtResource("6_uq3k3")]
+position = Vector2(418, 50)
+thought_group = 4
+
+[node name="StartMenu" parent="." instance=ExtResource("5_bys1v")]
+unique_name_in_owner = true
+
+[node name="DialogBox" parent="." instance=ExtResource("7_8c6a2")]
+offset_left = -114.5
+offset_top = -78.0
+offset_right = 114.5
+offset_bottom = 78.0
+
+[node name="TitleTextLabel" parent="DialogBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "Good Job!"
+
+[node name="DialogTextLabel" parent="DialogBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "It looks like you've got the hang of things!
+
+We have updated your system to include different Thought Boxes, which will make it easier to get your thoughts organized!
+
+Keep up the good work!"
+
+[node name="Transitioner" parent="." instance=ExtResource("8_ukyv0")]
+
+[connection signal="thoughts_empty" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_empty"]
+[connection signal="thoughts_put_away" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_put_away"]
+[connection signal="closed" from="DialogBox" to="." method="_on_dialog_box_closed"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]
+
+[editable path="DialogBox"]

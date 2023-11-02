@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://diph1pbpjasy1"]
+
+[ext_resource type="Texture2D" uid="uid://db6livlj4kvcm" path="res://Images/CloseButtonHover.png" id="1_qx73u"]
+
+[resource]
+texture = ExtResource("1_qx73u")
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+region_rect = Rect2(0, 0, 7, 7)

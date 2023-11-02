@@ -1,0 +1,17 @@
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\bin\Debug\ThoughtSorter.deps.json
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\bin\Debug\ThoughtSorter.runtimeconfig.json
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\bin\Debug\ThoughtSorter.dll
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\bin\Debug\ThoughtSorter.pdb
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.csproj.AssemblyReference.cache
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.AssemblyInfoInputs.cache
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.AssemblyInfo.cs
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.csproj.CoreCompileInputs.cache
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.csproj.CopyComplete
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.dll
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\refint\ThoughtSorter.dll
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.pdb
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ThoughtSorter.genruntimeconfig.cache
+D:\Users\jorda\Documents\Godot\ThoughtSorter\.godot\mono\temp\obj\Debug\ref\ThoughtSorter.dll

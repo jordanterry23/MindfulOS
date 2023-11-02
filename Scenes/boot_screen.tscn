@@ -1,0 +1,316 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvpfibkogk7e0"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/boot_screen.gd" id="1_0n858"]
+[ext_resource type="Texture2D" uid="uid://cfgyw377m15ym" path="res://Images/ClassyGoblin.png" id="2_36sb3"]
+[ext_resource type="FontFile" uid="uid://kr66oejuqbhx" path="res://Themes/Fonts/m5x7.ttf" id="2_fuo80"]
+
+[sub_resource type="Animation" id="Animation_s7uei"]
+resource_name = "boot"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/MarginContainer/VBoxContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.8, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Identified CPU
+Allocating RAM", "Identified CPU
+Allocating RAM", "Identified CPU
+Allocating RAM
+- System ................... OK
+", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS..", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS...", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS..", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blackout:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k3gup"]
+resource_name = "reboot"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/MarginContainer/VBoxContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.8, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Identified CPU
+Allocating RAM", "Identified CPU
+Allocating RAM", "Identified CPU
+Allocating RAM
+- System ................... OK
+", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS..", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS...", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS.", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS..", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS...", "Identified CPU
+Allocating RAM
+- System ................... OK
+- Extended .............. OK
+- Cache ....................... OK
+System initialized.
+Video initialized.
+Starting MindfulOS...
+
+*** RECOVERY MODE ***
+Don't forget to contact someone if you need help."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blackout:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(13.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rs815"]
+_data = {
+"boot": SubResource("Animation_s7uei"),
+"reboot": SubResource("Animation_k3gup")
+}
+
+[node name="boot_screen" type="Node"]
+script = ExtResource("1_0n858")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rs815")
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BG/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_36sb3")
+
+[node name="TitleLabel" type="Label" parent="BG/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fuo80")
+text = "Classy Boot"
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="BG/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fuo80")
+text = "MindfulOS Version 1.0
+"
+
+[node name="Label" type="Label" parent="BG/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fuo80")
+
+[node name="Blackout" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

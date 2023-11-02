@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://sgbnttfpjmlr"]
+
+[ext_resource type="Script" path="res://Scripts/GDScript/level.gd" id="1_yuyqk"]
+[ext_resource type="PackedScene" uid="uid://du0njbp3pc54y" path="res://Scenes/Menus/start_menu.tscn" id="5_24t5m"]
+[ext_resource type="Script" path="res://Scripts/GDScript/spawn_manager.gd" id="5_vyf4r"]
+[ext_resource type="PackedScene" uid="uid://mk8ti3yvo2m8" path="res://Scenes/Objects/ThoughtBubble.tscn" id="6_vot53"]
+[ext_resource type="PackedScene" uid="uid://jqahhxnbomvs" path="res://Scenes/Objects/DropZone.tscn" id="7_sj30o"]
+[ext_resource type="PackedScene" uid="uid://b75lxfwo1eqve" path="res://Scenes/Objects/Dialog_Box.tscn" id="8_q4m7f"]
+[ext_resource type="PackedScene" uid="uid://da282pob38pvw" path="res://Scenes/Objects/Transitioner.tscn" id="9_hwg0n"]
+
+[node name="Level5" type="Node"]
+script = ExtResource("1_yuyqk")
+dark_version = true
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="SpawnManager" type="Timer" parent="."]
+script = ExtResource("5_vyf4r")
+json_path = "res://Thoughts/Level5Thoughts.json"
+thought_bubbble = ExtResource("6_vot53")
+min_spawn_time = 0.5
+max_spawn_time = 1.0
+spawn_region_min = Vector2(50, 50)
+spawn_region_max = Vector2(430, 220)
+
+[node name="HomeDropZone" parent="." instance=ExtResource("7_sj30o")]
+position = Vector2(76, 50)
+thought_group = 1
+
+[node name="WorkDropZone" parent="." instance=ExtResource("7_sj30o")]
+position = Vector2(190, 50)
+thought_group = 2
+
+[node name="SchoolDropZone" parent="." instance=ExtResource("7_sj30o")]
+position = Vector2(304, 50)
+thought_group = 3
+
+[node name="SocialDropZone" parent="." instance=ExtResource("7_sj30o")]
+position = Vector2(418, 50)
+thought_group = 4
+
+[node name="StartMenu" parent="." instance=ExtResource("5_24t5m")]
+
+[node name="DialogBox" parent="." instance=ExtResource("8_q4m7f")]
+offset_left = -114.5
+offset_top = -57.0
+offset_right = 114.5
+offset_bottom = 57.0
+
+[node name="TitleTextLabel" parent="DialogBox/DialogBoxContainer/TitleBarContainer/TitleBar/TitleTextContainer" index="0"]
+text = "Error Report Response"
+
+[node name="DialogTextLabel" parent="DialogBox/DialogBoxContainer/MarginContainer/PanelContainer/MarginContainer" index="0"]
+text = "Hello, Mindful User.
+
+We have examined your error report and have checked the data provided. However there appears to be no issues with Mindful.
+
+Even though this may be a client-side issue,  we are looking into it for future support updates.
+
+Sorry for the inconvenience.
+
+- Mindful Support"
+
+[node name="Transitioner" parent="." instance=ExtResource("9_hwg0n")]
+
+[connection signal="thoughts_empty" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_empty"]
+[connection signal="thoughts_put_away" from="SpawnManager" to="." method="_on_spawn_manager_thoughts_put_away"]
+[connection signal="closed" from="DialogBox" to="." method="_on_dialog_box_closed"]
+[connection signal="faded_out" from="Transitioner" to="." method="_on_transitioner_faded_out"]
+
+[editable path="DialogBox"]

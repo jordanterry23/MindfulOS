@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://du0njbp3pc54y"]
+
+[ext_resource type="Theme" uid="uid://y6xkejqhe6x6" path="res://Themes/DialogBox/Dialog_box_theme.tres" id="1_1o6cs"]
+[ext_resource type="Script" path="res://Scripts/GDScript/start_menu.gd" id="2_4usai"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_1o6cs")
+script = ExtResource("2_4usai")
+
+[node name="PopUpMenu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_top = -30.0
+offset_right = 134.0
+offset_bottom = 14.0
+theme_type_variation = &"Background"
+
+[node name="MarginContainer" type="MarginContainer" parent="PopUpMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUpMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="PopUpMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ResponseButton"
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="PopUpMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ResponseButton"
+text = "Main Menu"
+
+[node name="StartMenuBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"Background"
+
+[node name="StartButton" type="Button" parent="StartMenuBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ResponseButton"
+toggle_mode = true
+text = "Menu"
+
+[connection signal="pressed" from="PopUpMenu/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PopUpMenu/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="toggled" from="StartMenuBar/StartButton" to="." method="_on_start_button_toggled"]
